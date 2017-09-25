@@ -265,6 +265,149 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/每天学习npm模块 一【is-sorted】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kwen Chan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kwen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/25/每天学习npm模块 一【is-sorted】/" itemprop="url">每天学习npm模块 一【is-sorted】</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T09:11:13+08:00">
+                2017-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/每天学习npm模块/" itemprop="url" rel="index">
+                    <span itemprop="name">每天学习npm模块</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="is-sorted"><a href="#is-sorted" class="headerlink" title="is-sorted"></a>is-sorted</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检查一个数组是否已经排序好，是的返回 true 否则返回 false</p>
+<h3 id="used"><a href="#used" class="headerlink" title="used"></a>used</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sorted = <span class="built_in">require</span>(<span class="string">'is-sorted'</span>)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sorted([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</div><div class="line"><span class="comment">// =&gt; true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sorted([<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]))</div><div class="line"><span class="comment">// =&gt; false</span></div><div class="line"></div><div class="line"><span class="comment">// supports custom comparators</span></div><div class="line"><span class="built_in">console</span>.log(sorted([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>], <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b - a &#125;)</div><div class="line"><span class="comment">// =&gt; true</span></div></pre></td></tr></table></figure>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">defaultSort</span> (<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a - b</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">checksort</span> (<span class="params">array, compare</span>) </span>&#123;</div><div class="line">  compare = compare || defaultSort <span class="comment">// 传入排序方式，默认是a - b</span></div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; array.length; ++i) &#123;</div><div class="line">  	<span class="comment">//定义a和b分别是数组的前一个和后一个数</span></div><div class="line">    <span class="keyword">var</span> a = array[i - <span class="number">1</span>]</div><div class="line">    <span class="keyword">var</span> b = array[i]</div><div class="line">		<span class="comment">//如果数组前一个数比后一个数大，那么就返回false</span></div><div class="line">    <span class="keyword">if</span> (compare(a, b) &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/05/Python-学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -515,6 +658,7 @@
             <h2 id="Hexo教程"><a href="#Hexo教程" class="headerlink" title="Hexo教程"></a>Hexo教程</h2><h3 id="新建一篇文章"><a href="#新建一篇文章" class="headerlink" title="新建一篇文章"></a>新建一篇文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"post Name"</span></div></pre></td></tr></table></figure>
 <h3 id="新建一个目录"><a href="#新建一个目录" class="headerlink" title="新建一个目录"></a>新建一个目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new page <span class="string">"page Name"</span> <span class="comment">#会在根目录下创建一个文件夹里面包含index.md</span></div></pre></td></tr></table></figure>
 <h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo serve</div><div class="line">或者</div><div class="line">$ hexo serve --debug  <span class="comment">#console会输出调试信息</span></div></pre></td></tr></table></figure>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>```bash<br>$ hexo generate 或者 $ hexo g #生成静态页面<br>$ hexo generate –deploy #生成静态页面并发布到github</p>
 
           
         
@@ -598,7 +742,7 @@
             
               <a href="/archives/ || archive">
             
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +753,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -620,7 +764,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
