@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Array,npm," />
+  <meta name="keywords" content="Array,npm,lodash," />
 
 
 
@@ -96,14 +96,14 @@
 
 
 <meta name="description" content="is-sorted作用检查一个数组是否已经排序好，是的返回 true 否则返回 false used1234567891011var sorted = require(&apos;is-sorted&apos;)console.log(sorted([1, 2, 3]))// =&amp;gt; trueconsole.log(sorted([3, 1, 2]))// =&amp;gt; false// supports custo">
-<meta name="keywords" content="Array,npm">
+<meta name="keywords" content="Array,npm,lodash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每天学习npm模块 一【is-sorted】">
 <meta property="og:url" content="http://yoursite.com/2017/09/25/每天学习npm模块 一【is-sorted】/index.html">
 <meta property="og:site_name" content="Kwen&#39;s Blog">
 <meta property="og:description" content="is-sorted作用检查一个数组是否已经排序好，是的返回 true 否则返回 false used1234567891011var sorted = require(&apos;is-sorted&apos;)console.log(sorted([1, 2, 3]))// =&amp;gt; trueconsole.log(sorted([3, 1, 2]))// =&amp;gt; false// supports custo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-25T01:39:04.000Z">
+<meta property="og:updated_time" content="2017-09-26T01:36:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天学习npm模块 一【is-sorted】">
 <meta name="twitter:description" content="is-sorted作用检查一个数组是否已经排序好，是的返回 true 否则返回 false used1234567891011var sorted = require(&apos;is-sorted&apos;)console.log(sorted([1, 2, 3]))// =&amp;gt; trueconsole.log(sorted([3, 1, 2]))// =&amp;gt; false// supports custo">
@@ -359,7 +359,7 @@
       
 
       
-        <h2 id="is-sorted"><a href="#is-sorted" class="headerlink" title="is-sorted"></a>is-sorted</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检查一个数组是否已经排序好，是的返回 true 否则返回 false</p>
+        <h2 id="is-sorted"><a href="#is-sorted" class="headerlink" title="is-sorted"></a><a href="https://github.com/dcousens/is-sorted" target="_blank" rel="external">is-sorted</a></h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>检查一个数组是否已经排序好，是的返回 true 否则返回 false</p>
 <h3 id="used"><a href="#used" class="headerlink" title="used"></a>used</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sorted = <span class="built_in">require</span>(<span class="string">'is-sorted'</span>)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sorted([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</div><div class="line"><span class="comment">// =&gt; true</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(sorted([<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]))</div><div class="line"><span class="comment">// =&gt; false</span></div><div class="line"></div><div class="line"><span class="comment">// supports custom comparators</span></div><div class="line"><span class="built_in">console</span>.log(sorted([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>], <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b - a &#125;)</div><div class="line"><span class="comment">// =&gt; true</span></div></pre></td></tr></table></figure>
 <h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">defaultSort</span> (<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> a - b</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">checksort</span> (<span class="params">array, compare</span>) </span>&#123;</div><div class="line">  compare = compare || defaultSort <span class="comment">// 传入排序方式，默认是a - b</span></div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; array.length; ++i) &#123;</div><div class="line">  	<span class="comment">//定义a和b分别是数组的前一个和后一个数</span></div><div class="line">    <span class="keyword">var</span> a = array[i - <span class="number">1</span>]</div><div class="line">    <span class="keyword">var</span> b = array[i]</div><div class="line">		<span class="comment">//如果数组前一个数比后一个数大，那么就返回false</span></div><div class="line">    <span class="keyword">if</span> (compare(a, b) &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
@@ -382,6 +382,8 @@
           
             <a href="/tags/npm/" rel="tag"># npm</a>
           
+            <a href="/tags/lodash/" rel="tag"># lodash</a>
+          
         </div>
       
 
@@ -402,6 +404,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/26/每天学习npm模块【array-first】/" rel="prev" title="每天学习npm模块【array-first】">
+                每天学习npm模块【array-first】 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -487,7 +493,7 @@
             
               <a href="/archive">
             
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -509,7 +515,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
