@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>每天学习npm模块【array-slice】 | Kwen&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="arary-slice作用传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值 used12345var slice = require(&apos;array-slice&apos;);var arr = [&apos;a&apos;, &apos;b&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;];slice(arr, 3, 6);//=&amp;gt; [&apos;e">
+  <meta name="description" content="array-slice作用传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值 used12345var slice = require(&apos;array-slice&apos;);var arr = [&apos;a&apos;, &apos;b&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;];slice(arr, 3, 6);//=&amp;gt; [&apos;e">
 <meta name="keywords" content="Array,npm,lodash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每天学习npm模块【array-slice】">
 <meta property="og:url" content="http://yoursite.com/2017/09/26/每天学习npm模块【array-slice】/index.html">
 <meta property="og:site_name" content="Kwen&#39;s Blog">
-<meta property="og:description" content="arary-slice作用传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值 used12345var slice = require(&apos;array-slice&apos;);var arr = [&apos;a&apos;, &apos;b&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;];slice(arr, 3, 6);//=&amp;gt; [&apos;e">
+<meta property="og:description" content="array-slice作用传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值 used12345var slice = require(&apos;array-slice&apos;);var arr = [&apos;a&apos;, &apos;b&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;];slice(arr, 3, 6);//=&amp;gt; [&apos;e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-26T01:44:14.000Z">
+<meta property="og:updated_time" content="2017-10-09T01:47:20.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每天学习npm模块【array-slice】">
-<meta name="twitter:description" content="arary-slice作用传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值 used12345var slice = require(&apos;array-slice&apos;);var arr = [&apos;a&apos;, &apos;b&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;];slice(arr, 3, 6);//=&amp;gt; [&apos;e">
+<meta name="twitter:description" content="array-slice作用传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值 used12345var slice = require(&apos;array-slice&apos;);var arr = [&apos;a&apos;, &apos;b&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos;i&apos;, &apos;j&apos;];slice(arr, 3, 6);//=&amp;gt; [&apos;e">
   
     <link rel="alternative" href="/atom.xml" title="Kwen&#39;s Blog" type="application/atom+xml">
   
@@ -157,7 +157,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="arary-slice"><a href="#arary-slice" class="headerlink" title="arary-slice"></a><a href="https://github.com/jonschlinkert/array-slice" target="_blank" rel="external">arary-slice</a></h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值</p>
+        <h2 id="array-slice"><a href="#array-slice" class="headerlink" title="array-slice"></a><a href="https://github.com/jonschlinkert/array-slice" target="_blank" rel="external">array-slice</a></h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>传入数组的某个开始index和结束index返回两个index之间的值，包括开始index而不包括结束index的值</p>
 <h3 id="used"><a href="#used" class="headerlink" title="used"></a>used</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> slice = <span class="built_in">require</span>(<span class="string">'array-slice'</span>);</div><div class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>];</div><div class="line"></div><div class="line">slice(arr, <span class="number">3</span>, <span class="number">6</span>);</div><div class="line"><span class="comment">//=&gt; ['e', 'f', 'g']</span></div></pre></td></tr></table></figure>
 <h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">slice</span>(<span class="params">arr, start, end</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> len = arr.length &gt;&gt;&gt; <span class="number">0</span>; <span class="comment">// 得到数字类型</span></div><div class="line">  <span class="keyword">var</span> range = [];</div><div class="line"></div><div class="line">  start = idx(arr, start);</div><div class="line">  end = idx(arr, end, len);</div><div class="line"></div><div class="line">  <span class="keyword">while</span> (start &lt; end) &#123; <span class="comment">// 把index之间的值都push进一个新的数组里</span></div><div class="line">    range.push(arr[start++]);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> range;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">idx</span>(<span class="params">arr, pos, end</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> len = arr.length &gt;&gt;&gt; <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (pos == <span class="literal">null</span>) &#123; <span class="comment">// 传进开始的index，如果没有就是0，结束位置也是0</span></div><div class="line">    pos = end || <span class="number">0</span>;</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (pos &lt; <span class="number">0</span>) &#123; <span class="comment">// 如果是负数那么倒数，也就是数组总长度+index</span></div><div class="line">    pos = <span class="built_in">Math</span>.max(len + pos, <span class="number">0</span>);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    pos = <span class="built_in">Math</span>.min(pos, len); <span class="comment">// 如果是其他值那么就和数组长度进行对比较看那个值小，最大不能超过数组长度</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> pos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
@@ -418,14 +418,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
@@ -435,6 +427,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">lodash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
             
             <div class="clearfix"></div>
